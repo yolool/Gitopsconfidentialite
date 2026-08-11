@@ -18,8 +18,8 @@ spec:
         - name: mysql-db
           image: mysql:8.0
           env:
-            - name: MYSQL_ROOT_PASSWORD
-              value: ""
+            - name: MYSQL_ALLOW_EMPTY_PASSWORD
+              value: true
             - name: MYSQL_DATABASE
               value: "confidentielty"
           ports:
