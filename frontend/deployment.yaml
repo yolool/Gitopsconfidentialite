@@ -1,22 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend-confidentielity
-  namespace: frontend-confidentielity
+  name: frontend-deployment
+  namespace: default
   labels:
-    app: frontend-confidentielity
+    app: frontend
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: frontend-confidentielity
+      app: frontend
   template:
     metadata:
       labels:
-        app: frontend-confidentielity
+        app: frontend
     spec:
       containers:
-      - name: frontend
-        image: your-registry/frontend-confidentielity:latest
-        ports:
-        - containerPort: 80
+        - name: frontend
+          image: adam020/frontend-confidentiality:latest
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "256Mi"
+              cpu: "250m"
