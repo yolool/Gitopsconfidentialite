@@ -19,7 +19,7 @@ spec:
           image: mysql:8.0
           env:
             - name: MYSQL_ALLOW_EMPTY_PASSWORD
-              value: true
+              value: false
             - name: MYSQL_DATABASE
               value: "confidentielty"
           ports:
