@@ -18,6 +18,7 @@ spec:
       containers:
         - name: backend
           image: adam020/backend-confidentiality:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
           env:
