@@ -1,23 +1,36 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend-confidentielity
-  namespace: backend-confidentielity
+  name: backend-deployment
+  namespace: default
   labels:
-    app: backend-confidentielity
+    app: backend
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: backend-confidentielity
+      app: backend
   template:
     metadata:
       labels:
-        app: backend-confidentielity
+        app: backend
     spec:
       containers:
-      - name: backend
-        # Replace the image with your registry/image:tag
-        image: your-registry/backend-confidentielity:latest
-        ports:
-        - containerPort: 8080
+        - name: backend
+          image: adam020/backend-confidentiality:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: "jdbc:mysql://mysql-db:3306/confidentielty"
+            - name: SPRING_DATASOURCE_USERNAME
+              value: "root"
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: "password"
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
