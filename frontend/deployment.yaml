@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: adam020/frontend-confidentiality:latest
+          image: adam020/frontend-confidentiality:19
           imagePullPolicy: Always
           ports:
             - containerPort: 80
