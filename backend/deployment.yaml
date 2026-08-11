@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-confidentielity
+  namespace: backend-confidentielity
+  labels:
+    app: backend-confidentielity
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: backend-confidentielity
+  template:
+    metadata:
+      labels:
+        app: backend-confidentielity
+    spec:
+      containers:
+      - name: backend
+        # Replace the image with your registry/image:tag
+        image: your-registry/backend-confidentielity:latest
+        ports:
+        - containerPort: 8080

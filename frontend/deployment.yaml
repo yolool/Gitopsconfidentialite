@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-confidentielity
+  namespace: frontend-confidentielity
+  labels:
+    app: frontend-confidentielity
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: frontend-confidentielity
+  template:
+    metadata:
+      labels:
+        app: frontend-confidentielity
+    spec:
+      containers:
+      - name: frontend
+        image: your-registry/frontend-confidentielity:latest
+        ports:
+        - containerPort: 80
