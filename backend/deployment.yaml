@@ -37,3 +37,6 @@ spec:
             limits:
               memory: "512Mi"
               cpu: "500m"
+      volumes:
+        - name: upload-storage  # <--- THIS WAS MISSING
+          emptyDir: {}
